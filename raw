@@ -103,3 +103,115 @@ function dosearch(start, end, A){
     return start;
     
 }
+
+
+// you can write to stdout for debugging purposes, e.g.
+// console.log('this is a debug message');
+
+function solution(X, A) {
+    // Implement your solution here
+    // let second = -1;
+    // let distance = X;
+    let positions = new Set();
+    for(let i=1; i<= X; i++){
+        positions.add(i);
+    }
+    for(let i=0; i< A.length; i++){
+        positions.delete(A[i]);
+        if(positions.size === 0){
+            return i;
+        }
+    }
+    return -1;
+}
+
+function solution(A) {
+    // Implement your solution here
+    A.sort((a,b) => {
+        return a-b;
+    });
+    for(let i=0; i< A.length; i++){
+        if(A[i] !== i+1)
+        return 0;
+    }
+    return 1;
+}
+
+// you can write to stdout for debugging purposes, e.g.
+// console.log('this is a debug message');
+
+function solution(A) {
+    // Implement your solution her
+    let pairCount = 0;
+    let eastCar = 0;
+    for(let i=0; i<A.length ; i++){
+        if(A[i] === 0){
+            eastCar++;
+        }else{
+            pairCount += eastCar;
+        }
+        if(pairCount > 1000000000){
+            return -1;
+        }
+    }
+    return pairCount;
+}
+
+function solution(A) {
+    // Implement your solution here
+    A = A.filter((a, index) => {
+        return A.indexOf(a) === index;
+    });
+    return A.length;
+}
+
+// you can write to stdout for debugging purposes, e.g.
+// console.log('this is a debug message');
+
+function solution(A) {
+    // Implement your solution here
+    let unique = [];
+    for(let i=0; i< A.length; i++){
+        if(A.lastIndexOf(A[i]) === i){
+            unique.push(A[i]);
+        }
+    }
+    return unique.length;
+}
+
+// you can write to stdout for debugging purposes, e.g.
+// console.log('this is a debug message');
+
+function solution(A) {
+    // Implement your solution here
+
+    let num = 0;
+    let dup = [];
+    for(let i=0; i< A.length; i++){
+        if(!dup.includes(A[i]) && A.lastIndexOf(A[i]) === i){
+            num = A[i];
+            break;
+        }
+        dup.push(A[i]);
+    }
+    return num;
+}
+
+
+function solution(A) {
+    // Implement your solution here
+
+    let num = 0;
+    let occurances = new Map();
+    for(let i=0; i< A.length; i++){
+        if(occurances.has(A[i])){
+            occurances.set(A[i], occurances.get(A[i])+1);
+        }else{
+            occurances.set(A[i], 1);
+        }
+    }
+    for(let [k,v] of occurances){
+        if(v%2 !== 0) return k;
+    }
+    return num;
+}
