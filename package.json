@@ -1,0 +1,19 @@
+{
+  "name": "practice-code",
+  "version": "1.0.0",
+  "description": "Practiced code",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nichaphatju/practice.git"
+  },
+  "author": "nichaphatj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nichaphatju/practice/issues"
+  },
+  "homepage": "https://github.com/nichaphatju/practice#readme"
+}
