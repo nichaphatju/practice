@@ -16,5 +16,8 @@ function solution(A) {
     return Math.min(docIds.size, allschedules - docIds.size);
 }
 
-var result = solution([[1, 4, 9, 3],  [2, 5, 1, 8], [6, 8, 0, 10]]);
+var result = solution(
+    [[1, 1, 9, 3],  
+    [2, 5, 1, 8], 
+    [6, 8, 0, 10]]);
 console.log(result);
