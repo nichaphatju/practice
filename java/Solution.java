@@ -41,11 +41,38 @@ public class Solution {
         int[] arr = new int[A.length];
 
         List<Character> lst = new ArrayList<Character>();
-        Map<Character, Character> mp = new HashMap<Character, Character>();
+        // Sorting
+        Collections.sort(lst);
 
-        Set<Integer> st = new HashSet<Integer>(1);
+        System.out.println(Arrays.toString(lst.toArray()));
+        System.out.println(Arrays.deepToString(lst.toArray()));
+
+        // Hashmap does not maintain insertion order
+        Map<Character, Character> mp = new HashMap<Character, Character>();
+        
+        // Treemap is similar to a HashMap,
+        // will iterate according to the "natural ordering" of the keys according to their compareTo() method
+        // Slowest
+        TreeMap<String, Integer> a2 = new TreeMap<>();
+
+        // LinkedHashMap : Note that insertion order is not affected if a key is re-inserted into the map
+        Map<String, Integer> lMap = new LinkedHashMap<>();
+
+        // getOrDefault(Object key, V defaultValue)
+        /****
+         * TreeMap<String, Integer> a2 = new TreeMap<>();
+            for(String s : a1)
+            a2.put(s, a2.getOrDefault(s, 0) + 1);
+         * mp.getOrDefault(key, 0);
+         * a2.getOrDefault(key, 0);
+         * 
+         */
+        
+        
+        Set<Integer> set = new HashSet<Integer>(1);
 
         Stack<Integer> stFishUp = new Stack<Integer>();
+        Stack<Character> st = new Stack<Character>();
 
         for(int i=1; i< A.length; i++){
         }
@@ -54,13 +81,43 @@ public class Solution {
             break;
         }
 
+        // NUMBERS
         // int i = (int) d.doubleValue();
+        /*
+            try {
+                intValue = Integer.parseInt(string);
+                
+                Integer.valueOf()
+                Double.parseDouble()
+                Float.parseFloat()
 
+                return true;
+            } catch (NumberFormatException e) {
+                System.out.println("Input String cannot be parsed to Integer.");
+            }
+
+        */
 
         System.out.println(" ---- >> Output "+ 1);
         
 
         return 1;
+    }
+
+    public static String stringFunction(String A) {
+        System.out.println(" ---- >> Input "+ A);
+
+        StringBuilder sb = new StringBuilder(A);
+        sb.append("123");
+        sb.deleteCharAt(1);
+        String resultString = sb.toString();
+
+        // String newStr = string.replace("*", "");
+
+
+
+        System.out.println(" ---- >> Output "+ 1);
+        return "";
     }
 
     public static String solution(String A) {
@@ -70,11 +127,16 @@ public class Solution {
         return "";
     }
 
+
     public static void main(String[] args){
         int[] intArrayA = new int[]{ 3, 4, 3, 2, 3, -1, 3, 3 }; 
         // int[] intArrayB = new int[]{ 1, 1, 0, 0, 0 }; 
         // System.out.println(solution(intArrayA, intArrayB));
         System.out.println(solution(intArrayA));
+
+        List<Integer> numbers = Arrays.asList(5, 3, 2, 4, 1, 10);
+        numbers.sort(null);
+        System.out.println(numbers);
         // System.out.println(solution(""));
 
     }
