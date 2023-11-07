@@ -4,7 +4,7 @@
 // you can write to stdout for debugging purposes, e.g.
 // System.out.println("this is a debug message");
 
-class Solution {
+class Transformation {
     public String solution(String S) {
         // Implement your solution here
         Boolean foundMatch = true;

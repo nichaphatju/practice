@@ -1,8 +1,11 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.Stack;
 
 public class FreeShelves {
     public static int solution(int[] A, int R){
@@ -193,17 +196,85 @@ public class FreeShelves {
         return start;
     }
 
+        public static int freeRShelves(int[] shelves, int R) {
+            if(shelves.length < R) return 0;
+            System.out.println("shelves " + Arrays.toString(shelves));
+            // count product type of each position
+            Map<Integer, Set<Integer>> countProd = new HashMap<Integer,Set<Integer>>();
+            Map<Integer, Set<Integer>> countProdR = new HashMap<Integer,Set<Integer>>();
+
+            int[] leftProds = new int[shelves.length];
+            int[] rightProd = new int[shelves.length];
+
+            // leftProds[0] = 1;
+            // rightProd[0] = 1;
+            for(int i=1; i < shelves.length ;i++){
+                Set<Integer> shCount = new HashSet<>();
+                if(countProd.containsKey(i-1)){
+                    /** COPY to new Set instead of using pointer */
+                    shCount = new HashSet<>(countProd.get(i-1));
+                }
+                if(!shCount.contains(shelves[i-1])){
+                    leftProds[i] = shCount.size() + 1;
+                    shCount.add(shelves[i-1]);
+                }else{
+                    leftProds[i] = shCount.size();
+                }
+                // System.out.println("i " + i);
+                // System.out.println("shCount " + shCount);
+                countProd.put(i, shCount);
+                
+            }
+
+            // System.out.println("countProd " + countProd);
+            // System.out.println("leftProds " + Arrays.toString(leftProds));
+
+            // {1, 2, 2, 3, 4, 4, 4, 5, 6, 6, 6, 6};
+            for(int j=shelves.length-2; j >= shelves.length-(shelves.length-R); j--){
+                Set<Integer> shCount = new HashSet<>();
+                if(countProdR.containsKey(j+1)){
+                    /** COPY to new Set instead of using pointer */
+                    shCount = new HashSet<>(countProdR.get(j+1));
+                }
+                Set<Integer> leftCount = countProd.getOrDefault(j-(R-1), new HashSet<>());
+                if(!leftCount.contains(shelves[j+1]) && !shCount.contains(shelves[j+1])){
+                    rightProd[j] = rightProd[j+1] + 1;
+                    shCount.add(shelves[j+1]);
+                }else{
+                    rightProd[j] = rightProd[j+1];
+                }
+
+                countProdR.put(j, shCount);
+            }
+            // System.out.println("countProd " + countProd);
+            // System.out.println("rightProd " + Arrays.toString(rightProd));
+
+            int countProdLeft = 0;
+            int indx = 0;
+            for(int i=0; i< leftProds.length-R+1 ; i++){
+                if(leftProds[i] + rightProd[i+(R-1)] > countProdLeft){
+                    countProdLeft = leftProds[i] + rightProd[i+(R-1)];
+                    indx = i;
+                }
+                // System.out.println("--- "  + indx);
+            }
+
+            return indx;
+        }
+
     public static void main(String[] args){
         int[] intArrayB = new int[]{ 1, 2, 3, 2, 1, 2 }; 
-        System.out.println(findOptimalShelf(intArrayB, 3));
+        System.out.println(freeRShelves(intArrayB, 3));
         // System.out.println(solution(intArrayA));
         // System.out.println(solution(""));
         int[] shelves = {1, 2, 2, 3, 4, 4, 4, 5, 6, 6, 6, 6};
         int R = 3;
-
-        int optimalShelf = findOptimalShelf3(shelves, R);
+        int optimalShelf = freeRShelves(shelves, R);
 
         System.out.println("Optimal Shelf: " + optimalShelf);
+
+        int[] intArrayC = new int[]{ 9, 8 ,2, -1, -1, -1, 5, 7, 8, 8, 8, 8, 8, 8, 9 }; 
+        System.out.println(freeRShelves(intArrayC, 8));
 
     }
 }

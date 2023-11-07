@@ -1,4 +1,4 @@
-public class RemoveDuplicate {
+public class RemoveDuplicateArr {
     public int removeDuplicates(int[] nums) {
         int len = nums.length;
         int count = 0;

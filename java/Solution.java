@@ -37,7 +37,7 @@ public class Solution {
         public static int solution(int[] A) {
         System.out.println(" ----->> Input : " + Arrays.toString(A));
 
-
+        /*** LIST, ARRAY, LOOP */
         int[] arr = new int[A.length];
 
         List<Character> lst = new ArrayList<Character>();
@@ -70,6 +70,13 @@ public class Solution {
         
         
         Set<Integer> set = new HashSet<Integer>(1);
+        /**
+         * COPY NEW SET INSTEAD OF USING POINTER
+         * Set<T> copy = new HashSet<>(original);
+         * 
+         *  Set<T> copy = new HashSet<>();
+         *   copy.addAll(original)
+         */
 
         Stack<Integer> stFishUp = new Stack<Integer>();
         Stack<Character> st = new Stack<Character>();
@@ -81,7 +88,7 @@ public class Solution {
             break;
         }
 
-        // NUMBERS
+        /*** NUMBERS ***/
         // int i = (int) d.doubleValue();
         /*
             try {
@@ -104,6 +111,7 @@ public class Solution {
         return 1;
     }
 
+    /** STRING */
     public static String stringFunction(String A) {
         System.out.println(" ---- >> Input "+ A);
 

@@ -8,12 +8,19 @@ public class AnagramOrPalindrome {
             return 0;
         }
 
+        /** Check frequency */
         Map<Character, Integer> countChar = new HashMap<Character, Integer>();
         for(int i=0; i< sLen; i++){
             Character ch = Character.valueOf(S.charAt(i));
             countChar.put(ch, countChar.getOrDefault(ch, 0)+1);
         }
 
+        /** 
+         * 
+         * Anagram - all letters should have same frequency 
+         * Palindrome - all letters should have even number of frequency except the middle character (only one)
+         * 
+         * */
         Boolean countOneChar = false;
         for(Character ch: countChar.keySet()){
             if(countChar.get(ch)%2 != 0){
