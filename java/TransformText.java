@@ -4,10 +4,11 @@ import java.util.List;
 import java.util.Map;
 
 // Transform text
+// Test 3
 
 
 
-public class Test3 {
+public class TransformText {
     public static String solution(String S, String T){
     int M = T.length();
     int N = S.length();

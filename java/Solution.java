@@ -39,10 +39,19 @@ public class Solution {
 
         /*** LIST, ARRAY, LOOP */
         int[] arr = new int[A.length];
+        Arrays.sort(arr);
+        System.out.println(Arrays.toString(arr));
 
         List<Character> lst = new ArrayList<Character>();
         // Sorting
         Collections.sort(lst);
+
+        /*
+        *
+        * This wont work with primitive arrays
+        * Collections.reverse(Arrays.asList(yourArray));
+        *
+        */
 
         System.out.println(Arrays.toString(lst.toArray()));
         System.out.println(Arrays.deepToString(lst.toArray()));
@@ -89,6 +98,10 @@ public class Solution {
         }
 
         /*** NUMBERS ***/
+        String n = String.valueOf(3);
+        if(Character.isDigit(n.charAt(0))){
+            int dg = Character.getNumericValue(n.charAt(0));
+        }
         // int i = (int) d.doubleValue();
         /*
             try {
