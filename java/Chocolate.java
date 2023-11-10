@@ -53,7 +53,7 @@ public class Chocolate {
         return N/(gcd(N,M));
     }
 
-    // using "Euclidean Algorithm" (important)
+    // using "Euclidean Algorithm" (important) find the greatest common divisor of two positive integers, a and b
     public static int gcd(int a,int b){
         System.out.println(" a " +a);
         System.out.println(" b " +b);

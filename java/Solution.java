@@ -42,6 +42,9 @@ public class Solution {
         Arrays.sort(arr);
         System.out.println(Arrays.toString(arr));
 
+        Integer[] arrObj = new Integer[]{1,2,3,4};
+        Arrays.sort(arrObj, Collections.reverseOrder());    // can NOT use with primitive array
+
         List<Character> lst = new ArrayList<Character>();
         // Sorting
         Collections.sort(lst);
@@ -102,6 +105,13 @@ public class Solution {
         if(Character.isDigit(n.charAt(0))){
             int dg = Character.getNumericValue(n.charAt(0));
         }
+        double x = 7;
+        int timeToRemove = (int) Math.ceil(2/x); 
+        System.out.println(timeToRemove);   // This will result 1
+
+        timeToRemove = (int) Math.ceil(2/7); 
+        System.out.println(timeToRemove);   // This will result 0 since 7 is integer -> int divid int - the result will always round down
+
         // int i = (int) d.doubleValue();
         /*
             try {
@@ -134,6 +144,10 @@ public class Solution {
         String resultString = sb.toString();
 
         // String newStr = string.replace("*", "");
+        String n = String.valueOf(3);
+        if(Character.isDigit(n.charAt(0))){
+            int dg = Character.getNumericValue(n.charAt(0));
+        }
 
 
 
