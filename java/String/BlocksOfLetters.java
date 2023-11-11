@@ -3,6 +3,15 @@ import java.util.Arrays;
 import java.util.List;
 
 public class BlocksOfLetters {
+
+    /**
+     * 
+     * @param S
+     * @return
+     * 
+     * Find number of additional letters to be added to a string to contain blocks of equal lengths
+     */
+
     public static int solution(String S){
 
         int tmpCharCount = 1;
@@ -17,7 +26,9 @@ public class BlocksOfLetters {
                 tmpCharCount = 1;
             }
         }
+        // blocks contains list of number of consecutive same character
         blocks.add(tmpCharCount);
+        // maxLen = max length of consecutive character in S
         maxLen = Math.max(maxLen, tmpCharCount);
 
         System.out.println(String.valueOf(blocks));
@@ -31,8 +42,8 @@ public class BlocksOfLetters {
     }
 
     public static void main(String[] args){
-        System.out.println(solution("babaa"));
-        System.out.println(solution("bbbab"));
-        System.out.println(solution("bbbaaabbb"));
+        System.out.println(solution("babaa"));  // (3) one letter each should be added to 'b', 'a', and 'b' to be 'bbaabbaa'
+        System.out.println(solution("bbbab"));  // (4) 2 letters each should be added to last 2 'a' and 'b' to be bbbaaabbb
+        System.out.println(solution("bbbaaabbb")); // (0)
     }
 }

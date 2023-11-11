@@ -47,6 +47,26 @@ public class ABOrder {
         return AafterB.size();
     }
 
+    public static int solutionRefactor(String T){
+        int countA = 0, countAafterB = 0;
+        int countB = 0, tmpB = 0, countDelB = 0;
+        for(int i=0; i< T.length(); i++){
+            if(T.charAt(i) == 'B'){
+                countB++;
+                tmpB++;
+            }else{
+                countA++;
+                if(tmpB > 0){
+                    countAafterB++;
+                }
+                countDelB += tmpB;
+                tmpB = 0;
+            }
+            
+        }
+        return countA < countB ? countAafterB : countDelB;
+    }
+
     public static int solution2(String T){
         int countB = 0;
         int deletions = 0;
@@ -54,7 +74,14 @@ public class ABOrder {
             if(T.charAt(i) == 'B'){
                 countB++;
             }else{
-                // If not B -> deletions +1
+                /** Now countB = all B before A */
+                // If A -> check deletions +1 and B
+                /** 
+                 *  Now countB is B found before A (since this is A)
+                 *  Deletions stores what to delete
+                 *  deletion is 0 if there's no B before
+                 *  1 is current A -> what is less between delete B and current deletion plus A
+                 */
                 deletions = Math.min(deletions +1, countB);
             }
         }
@@ -65,12 +92,20 @@ public class ABOrder {
         // int[] intArrayA = new int[]{ 4, 3, 2, 1, 5 }; 
         // int[] intArrayB = new int[]{ 1, 1, 0, 0, 0 }; 
         // System.out.println(solution(intArrayA, intArrayB));
-        System.out.println("Result BAAABAB " +solution("BAAABAB"));
-        System.out.println("Result BBA " +solution("BBA"));
-        System.out.println("Result BBABA " +solution("BBABA"));
-        System.out.println("Result AAABAABB " +solution("AAABAABB"));
-        System.out.println("Result AABBAA " +solution("AABBAA"));
-        System.out.println("Result BBABAA " +solution("BBABAA"));
+        // System.out.println("Result BAAABAB " +solution2("BAAABAB"));
+        // System.out.println("Result BBA " +solution2("BBA"));
+        // System.out.println("Result BBABA " +solution2("BBABA"));
+        // System.out.println("Result AAABAABB " +solution2("AAABAABB"));
+        // System.out.println("Result AABBAA " +solution2("AABBAA"));
+        // System.out.println("Result BBABAA " +solution2("BBABAA"));
+
+
+        System.out.println("Result BAAABAB " +solutionRefactor("BAAABAB"));
+        System.out.println("Result BBA " +solutionRefactor("BBA"));
+        System.out.println("Result BBABA " +solutionRefactor("BBABA"));
+        System.out.println("Result AAABAABB " +solutionRefactor("AAABAABB"));
+        System.out.println("Result AABBAA " +solutionRefactor("AABBAA"));
+        System.out.println("Result BBABAA " +solutionRefactor("BBABAA"));
 
 
     }

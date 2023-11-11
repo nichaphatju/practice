@@ -1,4 +1,10 @@
 public class AlternateCoinReverse {
+
+    /**
+     * 
+     * @param A
+     * @return min times to flip coins to have all same side
+     */
     public static int solution(int[] A){
 
         int coinFlip0 = 0;  /** Flip to start with 0 */

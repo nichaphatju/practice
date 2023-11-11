@@ -1,8 +1,14 @@
 import java.util.Arrays;
 import java.util.Collections;
 
+/**
+ * 
+ * Find closest distance from i to left or right position which left or right element is greater than A[i]
+ * 
+ */
 public class DistanceAscender {
     public static int[] solution(int[] A){
+        /** Bad performance */
 
         int[] distance = new int[A.length];
 
@@ -73,15 +79,22 @@ public class DistanceAscender {
         return ret;
     }
 
+    /** Find only left closest, then reverse A to get right closest then reverse back again */
     public static int[] solution3(int[] A){
+        // Better performance
 
+        // find left closest
         int[] retL = leftClosestASC(A);
+
+        // reverse A to find right closest
         for(int i=0; i< A.length/2; i++){
             int tmp = A[i];
             A[i] = A[A.length-i-1];
             A[A.length-i-1] = tmp;
         }
         int[] retR = leftClosestASC(A);
+
+        // after get right closest, but in reverse form, reverse back to get right closest
         for(int i=0; i< A.length/2; i++){
             int tmp = retR[i];
             retR[i] = retR[A.length-i-1];
@@ -90,6 +103,7 @@ public class DistanceAscender {
 
         int[] ret = new int[A.length];
 
+        // compare between left and right closest
         for(int i=0; i< retL.length; i++){
             ret[i] = Math.min(retL[i], retR[i]);
             ret[i] = ret[i] == Integer.MAX_VALUE ? 0 : ret[i];

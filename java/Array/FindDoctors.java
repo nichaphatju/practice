@@ -3,6 +3,11 @@ import java.util.Set;
 
 public class FindDoctors {
 
+    /**
+     * 
+     * @param A
+     * @return number of doctor who work for more than 1 hospital
+     */
     public static int solution(int[][] A){
         Set<Integer> docIds = new HashSet<Integer>();
         int allschedules = 0;

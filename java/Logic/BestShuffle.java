@@ -29,6 +29,28 @@ public class BestShuffle {
         return sum;
     }
 
+    public static void possibleCombine(int[] A){
+        System.out.println(Arrays.toString(A));
+
+        int id=0;
+        for(int i=0; i <= 24; i++){
+            int[] arrPermute = swap(A, id, A.length);
+            System.out.println(Arrays.toString(arrPermute));
+            id++;
+            if(id >= 4) id = 0;
+        }
+
+    }
+
+    public static int[] swap(int[] arr, int i, int n){
+
+        int tmp = arr[i];
+        arr[i] = arr[n-1];
+        arr[n-1] = tmp;
+        return arr;
+
+    }
+
     public static int permute(int maxSum, int n, int[] arr, int[] generatedPermuted){
         System.out.println(n);
         if(n == 1){
@@ -68,7 +90,9 @@ public class BestShuffle {
 
     public static void main(String[] args) {
         // System.out.println(solution(5, 3, -1, 5));
-        System.out.println(solution(1, 2, 3, 4));
+        // System.out.println(solution(1, 2, 3, 4));
+
+        possibleCombine(new int[]{1,2,3,4});
     }
 
 }

@@ -1,6 +1,11 @@
 import java.util.Arrays;
 
 public class Amplitude {
+    /**
+     * 
+     * @param A
+     * @return amplitude - the largest possible difference between 2 elements
+     */
     public static int solution(int[] A){
         Arrays.sort(A);
         int amplitude = A[A.length-1] - A[0];

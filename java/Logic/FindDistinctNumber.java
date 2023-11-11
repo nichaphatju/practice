@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Distinct {
+public class FindDistinctNumber {
     public int solution(int[] A) {
 
       // special case

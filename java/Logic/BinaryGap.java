@@ -56,21 +56,21 @@ public class BinaryGap {
         while( N !=0 ){
         
             if(counting == false){    // for the first "1"   
-                if( (N&1) == 1){      // note: cannot use n&1 withoug "()"
-                    counting = true;  // start to count
+                if( (N&1) == 1){      // note: cannot use n&1 without "()" -> if N&1 = 1 means current binary digit is 1
+                    counting = true;  // found first 1 -> start to count
                 }
             }
             else{                    // counting = true
-                if( (N&1) ==0){      // note: cannot use n&1 withoug "()"
+                if( (N&1) == 0){      // note: cannot use n&1 without "()" -> if N&1 = 1 means current binary digit is 0
                     current_gap ++;  
                 }
-                else{ // N & 1 == 1
+                else{ // N & 1 == 1     // found the next 1
                     max_gap = Math.max(max_gap, current_gap);
-                    current_gap = 0; // reset
+                    current_gap = 0; // reset counting
                 }
             }
             
-            N = N >> 1; // shift by one (right side) 
+            N = N >> 1; // shift by one (shift to right side) 
                         // note: cannot just write "N >> 1"
         }
         

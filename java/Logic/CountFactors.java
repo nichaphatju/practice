@@ -6,7 +6,7 @@ import java.util.Set;
 public class CountFactors {
 
     // main idea:
-    // check from 1 to "sqrt_of_N" 
+    // check from 1 to "sqrt_of_N"      // max factors of number N wont be greater than sqrt N because sqrtN*sqrtN = N
     // then, taking its pair into consideration
     // ---> numFactor = numFactor * 2;
         
@@ -18,8 +18,8 @@ public class CountFactors {
         // Implement your solution here
         int D = 1;
         Set<Integer> factors = new HashSet<Integer>();
-        // If prime number, this will run til the end
-        // run to sqrt instead (Max num that can divide N because sqrtN*sqrtN = N)
+        // If prime number and we use N/2, this will run til the end (N/2)
+        // run to sqrt instead (Max num that can divide N because sqrtN*sqrtN = N) for better performance
         int sqrtN = (int) Math.sqrt(N); 
         while(D <= sqrtN){
             if(N%D == 0){

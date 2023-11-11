@@ -2,10 +2,21 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MaxDoubleSliceSum {
+
+    /**
+     * 
+     * @param A
+     * @return
+     * 
+     * triplet (X,Y,Z) -> 0 <= X < Y < Z < N is double slice
+     * sum of double slice = A[X+1] + A[X+2] + ... + A[Y-1] + A[Y+1] + A[Y+2] + ... + A[Z-1]
+     * ex.(0,3,6) => A[1] + A[2] + A[4] + A[5] -> exclusive 0,3,6
+     * 
+     */
     
     public static int solution(int[] A) {
         // Implement your solution here
-
+        // Wrong solution
         int tmpSliceLeft = 0, tmpSliceRight = 0;
         int maxSliceLeft = 0, maxSliceRight = 0;
         int maxSlice = maxSliceLeft + maxSliceRight;
@@ -66,14 +77,15 @@ public class MaxDoubleSliceSum {
 
     public static int solutionMaxSlice(int[] A) {
         // Implement your solution here
+        // 100%
 
         int[] maxSliceLeft = new int[A.length];
         int[] maxSliceRight = new int[A.length];
 
 
         for(int i=1, j=A.length-2; i<A.length && j >= 0; i++, j--){
-            maxSliceLeft[i] = Math.max(0, maxSliceLeft[i-1] + A[i]);    // max slice algorithm - from start to i-1
-            maxSliceRight[j] = Math.max(0, maxSliceRight[j+1] + A[j]);    // max slice algorithm - from j+1 to end
+            maxSliceLeft[i] = Math.max(0, maxSliceLeft[i-1] + A[i]);    // max slice algorithm - sum from start to i
+            maxSliceRight[j] = Math.max(0, maxSliceRight[j+1] + A[j]);    // max slice algorithm - sum from j to end
         }
 
         //System.out.println("maxSliceLeft " + Arrays.toString(maxSliceLeft));

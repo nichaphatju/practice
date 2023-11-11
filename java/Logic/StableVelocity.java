@@ -4,6 +4,9 @@ public class StableVelocity {
      * 
      * @param A
      * @return Arithmetic Slices
+     * 
+     * Find number of period which the movement of the particle is stable
+     * 
      */
 
     public static int solution(int[] A){
@@ -35,13 +38,18 @@ public class StableVelocity {
         int tmpCount = 0;
 
         for(int i=2; i<A.length; i++){
+            // length at least 3
             if(A[i-1] - A[i-2] == A[i] - A[i-1]){
                 tmpCount++;
+                count += tmpCount;  // because there might be overlap slice
             }else{
                 tmpCount = 0;
             }
 
-            count += tmpCount;
+            
+            if(count == 1000000000){
+                return 1000000000;
+            }
 
         }
 
@@ -49,11 +57,14 @@ public class StableVelocity {
     }
 
     public static void main(String[] args){
-        int[] arrA = new int[]{-1, 1, 3, 3, 3 ,2 ,3 ,2 ,1, 0};
-        System.out.println(solution2(arrA));
+        // int[] arrA = new int[]{-1, 1, 3, 3, 3 ,2 ,3 ,2 ,1, 0};
+        // System.out.println(solution2(arrA));
+
+        int[] arrC = new int[]{-1, 1, 3, 3, 3 ,2 ,3 ,2 ,1, 0, -1};
+        System.out.println(solution2(arrC));
 
 
-        int[] arrB = new int[]{-1, 1, 3, 3, 3 ,2 ,10 ,9 ,8, 7, 6, 5, 4, 3, 2, 1};
-        System.out.println(solution2(arrB));
+        // int[] arrB = new int[]{-1, 1, 3, 3, 3 ,2 ,10 ,9 ,8, 7, 6, 5, 4, 3, 2, 1};
+        // System.out.println(solution2(arrB));
     }
 }

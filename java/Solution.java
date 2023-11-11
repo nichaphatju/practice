@@ -16,7 +16,9 @@ import java.util.*;
  * Iterations - Find longest sequence of zeros in binary representation of an integer.
  * Arrays - Rotation of the array means that each element is shifted right by one index
  * Time Complexity - Frog Jump
- * Counting Elements - FrogRiverOne / Permutation check (A permutation is a sequence containing each element from 1 to N once, and only once. เลขในอาร์เรย์ไม่ซ้ำ)
+ * Counting Elements -  Count number of element in an array and store values in another array ex. count frequency of number 0 in array A store in count[0], frequency of number 1 in array A store in count[1] (count[A[i]]+=1)
+ *                      FrogRiverOne 
+ *                      Permutation check (A permutation is a sequence containing each element from 1 to N once, and only once. เลขในอาร์เรย์ไม่ซ้ำ)
  * Prefix Sums - Sum of arrays from 0-N - PassingCars
  * Sorting
  * Stacks and Queues
@@ -149,7 +151,7 @@ public class Solution {
             int dg = Character.getNumericValue(n.charAt(0));
         }
 
-
+        // Character ch = Character.valueOf(S.charAt(i));
 
         System.out.println(" ---- >> Output "+ 1);
         return "";
@@ -174,28 +176,5 @@ public class Solution {
         System.out.println(numbers);
         // System.out.println(solution(""));
 
-    }
-
-    public static int binSearch(int start, int end, int[] A, int searchVal){
-        
-        // System.out.println(" ---- >> Input "+ Arrays.toString(A));
-        // System.out.println(" ---- >> Input "+ start);
-        // System.out.println(" ---- >> Input "+ end);
-
-        if(start < end){
-            int mid = (int) Math.floor((end-start)/2) + start;
-            Boolean nextSearch1stHalf = A[mid] > searchVal; // current val (mid) > search val => search left
-            Boolean nextSearch2ndHalf = A[mid] < searchVal; // current val (mid) < search val => search right
-            if(nextSearch1stHalf){
-                return binSearch(start, mid, A, searchVal);
-            }else if(nextSearch2ndHalf){
-                return binSearch(mid, end, A, searchVal);
-            }else{
-                // In case search specific number
-                return mid;
-            }
-        }
-
-        return start;
     }
 }

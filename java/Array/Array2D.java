@@ -8,6 +8,20 @@ import java.util.stream.Stream;
 import static java.util.stream.Collectors.toList;
 
 public class Array2D {
+
+    /**
+     * 
+     * @param args
+     * @throws IOException
+     * 
+     * Find max value of hour glass shape in array 2d
+     * Hour glass shape is
+     * ###
+     *  #
+     * ###
+     * 
+     */
+
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -32,9 +46,10 @@ public class Array2D {
         //4,2 4,3 4,4
         //5,2 5,3 5,4
         
-        // i,j | i,j+1 | i,j+2 
-        // i+1, j | i+1,j+1 | i+1,j+2
-        // i+2, j | i+2,j+1 | i+2,j+2
+        // Hour glass at i contains
+        // <i,j>    | <i,j+1>   | <i,j+2>
+        // i+1, j   | <i+1,j+1> | i+1,j+2
+        // <i+2, j> | <i+2,j+1> | <i+2,j+2>
         
         int maxSum = Integer.MIN_VALUE;
         for(int i=0; i< arr.size()-2; i++){

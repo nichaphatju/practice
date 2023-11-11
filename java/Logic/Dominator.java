@@ -8,7 +8,7 @@ import java.util.*;
  * Prefix Sums - Sum of arrays from 0-N
  * Sorting
  * Stacks and Queues
- * Leader
+ * **Leader
  * Maximum slice problem
  * Prime and composite numbers
  * Sieve Eratosthenes
@@ -65,6 +65,28 @@ public class Dominator {
         return halfEle;
     }
 
+    public static int solution2(int[] A){
+
+        if(A.length == 0) return -1;
+        int dominator = -1;
+        int maxCount = 0;
+        int half = (int) Math.ceil(A.length/2); // this will result 7 since 2 is integer
+        Map<Integer, Integer> mapCount = new HashMap<Integer, Integer>();
+        for(int i=0; i<A.length; i++){
+            mapCount.put(A[i], mapCount.getOrDefault(A[i], 0)+1);
+
+            if(mapCount.get(A[i]) > half){  // use > condition
+                if(mapCount.get(A[i]) > maxCount){
+                    maxCount = mapCount.get(A[i]);
+                    dominator = A[i];
+                }
+            }
+
+        }
+        return dominator;
+
+    }
+
     public static String solution(String A) {
         System.out.println(" ---- >> Input "+ A);
 
@@ -73,10 +95,10 @@ public class Dominator {
     }
 
     public static void main(String[] args){
-        int[] intArrayA = new int[]{ 3, 4, 3, 2, 3, -1, 3, 3 }; 
+        int[] intArrayA = new int[]{ 3, 4, 3, 2, 3, -1, 3, 3, 2, 2, 2, 2, 3, 3, 3 }; 
         // int[] intArrayB = new int[]{ 1, 1, 0, 0, 0 }; 
         // System.out.println(solution(intArrayA, intArrayB));
-        System.out.println(solution(intArrayA));
+        System.out.println(solution2(intArrayA));
         // System.out.println(solution(""));
 
     }

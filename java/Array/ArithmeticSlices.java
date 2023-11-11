@@ -1,4 +1,12 @@
 public class ArithmeticSlices {
+
+    /**
+     * 
+     * @param nums
+     * @return
+     * 
+     * Arithmetic = consists of at least three elements and if the difference between any two consecutive elements is the same.
+     */
     public int numberOfArithmeticSlices(int[] nums) {
         if(nums.length < 3) return 0;
         int count = 0;

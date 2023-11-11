@@ -1,10 +1,19 @@
 import java.util.*;
 
 public class MaximumProfit {
+
+    /**
+     * 
+     * @param A
+     * @return
+     * 
+     * Give array A contains price of stock each day, find max profit to sell stock
+     */
+
     public static int solution(int[] A) {
         // Implement your solution here
         //System.out.println(" ----->> Input : " + Arrays.toString(A));
-        int[] maxPriceAfter = new int[A.length];
+        int[] maxPriceAfter = new int[A.length];    // store maximum price in the future (exclude i) at each point
         int maxPrice = 0;
         for(int i=A.length-1; i>=0; i--){
             if(i < (A.length-1)){

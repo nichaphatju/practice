@@ -2,6 +2,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Not tested
+ */
 public class Balloon {
     public static int solution(String S){
 
@@ -12,9 +15,9 @@ public class Balloon {
             else
                 countChar.put('Z', countChar.getOrDefault('Z', 0)+1);
         }
-        int[] test = new int[26];
-        test['a'-'a']++;
-        System.out.println(Arrays.toString(test));
+        // int[] test = new int[26];
+        // test['a'-'a']++;
+        // System.out.println(Arrays.toString(test));
 
         int countB = countChar.getOrDefault('B', 0);
         int countA = countChar.getOrDefault('A', 0);

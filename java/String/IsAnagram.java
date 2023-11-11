@@ -3,10 +3,13 @@ import java.util.Scanner;
 public class IsAnagram {
     static boolean isAnagram(String a, String b) {
         // Complete the function
+
+        /** Anagram - each letter must have the same frequency */
         if(a.length() != b.length()){
             return false;
         }
         
+        // Use treemap to maintain order
         java.util.Map<String, Integer> countCharA = new java.util.TreeMap<>(String.CASE_INSENSITIVE_ORDER);
         java.util.Map<String, Integer> countCharB = new java.util.TreeMap<>(String.CASE_INSENSITIVE_ORDER);
         
