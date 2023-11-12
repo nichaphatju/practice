@@ -1,27 +1,24 @@
-import java.util.Stack;
-
 public class MovingPlayers {
 
-
+    /**
+     * 
+     * @param S -> format >,<,^,v represent player direction
+     * @return
+     */
 
     public static int solution(String S){
         int count = 0;
-        Stack<Character> st = new Stack<Character>();
+        Boolean isLeftOk = true;
         for(int i=0; i<S.length(); i++){
             if(S.charAt(i) == '>'){
-                st.push('>');
+                isLeftOk = false;
                 if(i == S.length()-1) count++;
             }else if(S.charAt(i) == '^' || S.charAt(i) == 'v'){
-                if(!st.isEmpty()){
-                    st.clear();
-                }
+                isLeftOk = true;
                 count++;
             }else{
-                
-                if(i==0){
-                    count++;
-                }else
-                if(st.isEmpty()){
+                // < Go left
+                if(isLeftOk){
                     count++;
                 }
             }
@@ -32,10 +29,8 @@ public class MovingPlayers {
 
     public static void main(String[] args) {
         System.out.println(solution(">><<"));
-
         System.out.println(solution(">>^<"));
         System.out.println(solution("<>>^<"));
-
         System.out.println(solution("<<<<v<"));
         System.out.println(solution("<<><v<"));
     }

@@ -8,18 +8,21 @@ function solution(A, K) {
              maxDigit = num.length
             }
         }
-        console.log(maxDigit)
+        //console.log(maxDigit)
 
         let col = Math.min(K, A.length);
         let line = A.length < K ? 1 : Math.ceil(A.length/col);
-        line = (line*2)+1;
-        console.log(line)
+        line = (line*2)+1;      // add border
+        //console.log(line)
 
         let str = '';
          
         let countNum = 0;
          for(let l=0; l< line; l++){
             if(l%2 == 0){
+                if(l == line-1){
+                    col = A.length%K;
+                }
                 for(let i=0; i<col; i++){
                     str+='+';
                     for(let j=0; j< maxDigit ; j++){
