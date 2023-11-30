@@ -47,6 +47,13 @@ public class Solution {
         Integer[] arrObj = new Integer[]{1,2,3,4};
         Arrays.sort(arrObj, Collections.reverseOrder());    // can NOT use with primitive array
 
+        // Create copy of the array of greater size
+        Integer[] arrCopy = Arrays.copyOfRange(arrObj, 1, 6);
+        // 1,6
+        // Short Array: [10 20 30 13 ]
+        // Copied Arrays: 
+        // Short Array: [20 30 13 0 0 ]
+
         List<Character> lst = new ArrayList<Character>();
         // Sorting
         Collections.sort(lst);
@@ -84,6 +91,27 @@ public class Solution {
         
         
         Set<Integer> set = new HashSet<Integer>(1);
+        HashSet myHashSet = new HashSet();
+        myHashSet.add(1);
+        myHashSet.add(23);
+        myHashSet.add(45);
+        myHashSet.add(12);
+
+        /** Ordering */
+        TreeSet myTreeSet = new TreeSet();
+        myTreeSet.addAll(myHashSet);
+        System.out.println(myTreeSet); // Prints [1, 12, 23, 45]
+        
+        /*
+        HashSet myHashSet = new HashSet();
+        myHashSet.add(1);
+        myHashSet.add(23);
+        myHashSet.add(45);
+        myHashSet.add(12);
+
+        TreeSet myTreeSet = new TreeSet(myHashSet);
+        System.out.println(myTreeSet); // Prints [1, 12, 23, 45] */
+
         /**
          * COPY NEW SET INSTEAD OF USING POINTER
          * Set<T> copy = new HashSet<>(original);
@@ -114,7 +142,8 @@ public class Solution {
         timeToRemove = (int) Math.ceil(2/7); 
         System.out.println(timeToRemove);   // This will result 0 since 7 is integer -> int divid int - the result will always round down
 
-        // int i = (int) d.doubleValue();
+        Double d = 2.2;
+        int i = (int) d.doubleValue();
         /*
             try {
                 intValue = Integer.parseInt(string);

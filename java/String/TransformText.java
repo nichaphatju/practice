@@ -12,7 +12,7 @@ public class TransformText {
     public static String solution(String S, String T){
     int M = T.length();
     int N = S.length();
-    int lenDiff = M - N;
+    int lenDiff = Math.abs(M - N);
     if(lenDiff > 1){
         return "IMPOSSIBLE";
     }
@@ -75,6 +75,8 @@ public class TransformText {
         System.out.println(solution("parks", "park"));
         System.out.println(solution("o", "odd"));
         System.out.println(solution("fift", "fifth"));
+        System.out.println(solution("from", "morf"));
+        System.out.println(solution("frrm", "form"));
 
     }
 }

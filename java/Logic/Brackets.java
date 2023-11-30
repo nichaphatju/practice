@@ -3,6 +3,7 @@ import java.util.Stack;
 public class Brackets {
     public static int solution(String S) {
         // Implement your solution here
+        // 100%
         if(S.length() == 0) return 1;
         Stack<Character> brackets = new Stack<Character>();
         brackets.push(S.charAt(0));
@@ -30,6 +31,38 @@ public class Brackets {
         }
         return 0;
 
+    }
+
+    public static int solution2(String S){
+        // 100%
+        // Implement your solution here
+        Stack<Character> st = new Stack<Character>();
+        for(int i=0; i< S.length(); i++){
+            Character ch = S.charAt(i);
+            if(st.isEmpty()){
+                if(ch == ')' || ch == '}' || ch == ']'){
+                    return 0;
+                }
+                st.push(ch);
+            }else{
+                if(st.peek() == '(' && ch == ')'){
+                    st.pop();
+                }else if(st.peek() == '{' && ch == '}'){
+                    st.pop();
+                }else if(st.peek() == '[' && ch == ']'){
+                    st.pop();
+                }else if(ch == '(' || ch == '{' || ch == '['){
+                    st.push(ch);
+                }else{
+                    return 0;
+                }
+            }
+        }
+
+        if(st.isEmpty()){
+            return 1;
+        }
+        return 0;
     }
 
     public static void main(String[] args){

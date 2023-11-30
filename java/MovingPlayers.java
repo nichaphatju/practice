@@ -27,6 +27,18 @@ public class MovingPlayers {
 
     }
 
+    /*
+     * Test cases:
+     * move up or down (^ or v) => Always pass, set Left OK true
+     * move left (<):
+     * check condition Left OK
+     *  if prev = up/down => Always pass - Left OK
+     *  if prev = right => NOT pass - Left NOT OK
+     *  if prev = left => check Left OK
+     * move right (>) => Always Failed set Left OK false, except the last one
+     * 
+     */
+
     public static void main(String[] args) {
         System.out.println(solution(">><<"));
         System.out.println(solution(">>^<"));
