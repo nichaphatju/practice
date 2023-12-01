@@ -24,6 +24,7 @@ public class StrSymmetryPoint {
         return -1;
     }
 
+    // dont count if it's mammam -> should return -1 -> Symmetry
     public int solutionCorrect(String S) {
         // Implement your solution here
         int strLen = S.length();

@@ -10,15 +10,19 @@ import java.util.*;
 
 class MinPerimeter {
     public int solution(int N) {
+        // Given N = area of the rectangle
         // Implement your solution here
-        int sqrtN = (int) Math.sqrt(N);
+        int sqrtN = (int) Math.sqrt(N); // max side
         Map<Integer, Integer> mapAB = new HashMap<Integer, Integer>();
         for(int i=1; i<=sqrtN ; i++){
+            // check if this's factor
             if(N%i == 0){
                 mapAB.put(i, N/i);
             }
         }
         int leastPerimeter = (N*2) + 2;
+        // or int minPerimeter = Integer.MAX_VALUE;
+        // find minumal perimeter
         for(Integer A: mapAB.keySet()){
             int perimeter = 2 * (A + mapAB.get(A));
             leastPerimeter = Math.min(perimeter, leastPerimeter);

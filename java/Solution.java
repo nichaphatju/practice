@@ -173,6 +173,18 @@ public class Solution {
         sb.append("123");
         sb.deleteCharAt(1);
         String resultString = sb.toString();
+        String strReverse = sb.reverse().toString();
+
+        char ch = 'x';
+        String strCh = String.valueOf(ch);
+        String str = Character.toString(ch);
+        String st = ""+ch;
+
+        String s = "This is a String!";
+        char charr[] = s.toCharArray();
+        for (char c : charr) {
+            System.out.print(c + " ");
+        }
 
         // String newStr = string.replace("*", "");
         String n = String.valueOf(3);
