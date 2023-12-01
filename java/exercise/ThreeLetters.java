@@ -75,6 +75,59 @@ public class ThreeLetters {
         return result;
     }
 
+    public String solution2(int A, int B) {
+        // Implement your solution here
+
+        String str = "";
+        if(A>B && A > 0){
+            if(A > 1){
+                str += "aa";
+                A-=2;
+            }else{
+                str += "a";
+                A--;
+            }
+        }else if(B > 0){
+            if(B > 1){
+                str += "bb";
+                B-=2;
+            }else{
+                str += "b";
+                B--;
+            }
+        }
+
+        while(A >0 || B >0){
+            if(str.endsWith("a") && B > 0){
+                if(A > B || B == 1){
+                    str += "b";
+                    B--;
+                }else if(B > 1) {
+                    str += "bb";
+                    B-=2;
+                }else{
+                    break;
+                }
+            }else if(A > 0){
+                // end with b
+                if(B > A || A == 1){
+                    str += "a";
+                    A--;
+                }else if( A > 1){
+                    str += "aa";
+                    A-=2;
+                }else{
+                    break;
+                }
+            }else{
+                break;
+            }
+        }
+
+        return str;
+
+    }
+
     public static void main(String[] args) {
         System.out.println(solution(0, 0));
     }

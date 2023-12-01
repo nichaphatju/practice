@@ -61,6 +61,54 @@ public class SocksLaundering {
         return countPairs;
     }
 
+    public int solution2(int K, int[] C, int[] D) {
+        // Implement your solution here
+
+        int count = 0;
+        Set<Integer> cs = new HashSet<Integer>();
+        List<Integer> cleanSocksLeft = new ArrayList<Integer>();
+        for(int i=0; i< C.length; i++){
+            if(cs.contains(C[i])){
+                count++;
+                cs.remove(C[i]);
+            }else{
+                cs.add(C[i]);
+            }
+        }
+
+        List<Integer> ds = new ArrayList<Integer>();
+        for(int i=0; i<D.length; i++){
+            // pick dirty sock to wash
+            if(cs.contains(D[i]) && K > 0){
+                count++;
+                K--;
+                cs.remove(D[i]);
+            }else{
+                ds.add(D[i]);
+            }
+        }
+
+        if( K > 0){
+            Collections.sort(ds);
+            int tmpPick = ds.get(0);
+            for(int i=1; i<ds.size(); i++){
+                
+                if(tmpPick == ds.get(i) && K > 1){
+                    count++;
+                    K-=2;
+                    tmpPick = -1;
+                }else{
+                    tmpPick = ds.get(i);
+                }
+                
+                
+            }
+        }
+
+        return count;
+
+    }
+
 
     public static void main(String[] args) {
 
