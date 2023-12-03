@@ -20,8 +20,8 @@ public class SumDigits {
     public static int check(int n){
         int sum = 0;
         while(n != 0){
-            sum = sum + n%10;       // n%10 => result is the right most digit of n -> count next digit from right to left adding to sum
-            n = n/10;               // remain digits except right most digit
+            sum = sum + n%10;       // n%10 => result is the right most digit of n (fraction after divide by 10) -> count next digit from right to left adding to sum
+            n = n/10;               // int -> so decimal will be removed - n will be remain digits except right most digit
             System.out.println("n " + n + " SUM " + sum);
         }
 
